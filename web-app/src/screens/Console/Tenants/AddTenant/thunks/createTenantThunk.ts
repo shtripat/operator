@@ -41,6 +41,7 @@ export const createTenantAsync = createAsyncThunk(
     const exposeMinIO = fields.configure.exposeMinIO;
     const exposeConsole = fields.configure.exposeConsole;
     const exposeSFTP = fields.configure.exposeSFTP;
+    const exposeFTPS = fields.configure.exposeFTPS;
     const idpSelection = fields.identityProvider.idpSelection;
     const openIDConfigurationURL =
       fields.identityProvider.openIDConfigurationURL;
@@ -173,6 +174,7 @@ export const createTenantAsync = createAsyncThunk(
       expose_minio: exposeMinIO,
       expose_console: exposeConsole,
       expose_sftp: exposeSFTP,
+      expose_ftps: exposeFTPS,
       pools: [
         {
           name: poolName,

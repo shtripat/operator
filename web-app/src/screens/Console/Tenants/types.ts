@@ -44,12 +44,14 @@ export interface ICustomCertificates {
 export interface ITenantConfigurationResponse {
   environmentVariables: LabelKeyPair[];
   sftpExposed: boolean;
+  ftpsExposed: boolean;
 }
 
 export interface ITenantConfigurationRequest {
   environmentVariables: LabelKeyPair[];
   keysToBeDeleted: string[];
   sftpExposed: boolean;
+  ftpsExposed: boolean;
 }
 
 export interface ITenantSecurityResponse {
@@ -150,6 +152,7 @@ export interface IConfigureFields {
   exposeMinIO: boolean;
   exposeConsole: boolean;
   exposeSFTP: boolean;
+  exposeFTPS: boolean;
   tenantCustom: boolean;
   customRuntime: boolean;
   runtimeClassName: string;

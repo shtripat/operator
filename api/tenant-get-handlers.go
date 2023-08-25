@@ -144,6 +144,9 @@ func getTenantDetailsResponse(session *models.Principal, params operator_api.Ten
 		if minTenant.Spec.Features.EnableSFTP != nil {
 			info.SftpExposed = *minTenant.Spec.Features.EnableSFTP
 		}
+		if minTenant.Spec.Features.EnableFTPS != nil {
+			info.FtpsExposed = *minTenant.Spec.Features.EnableFTPS
+		}
 		if minTenant.Spec.Features.Domains != nil {
 			domains = models.DomainsConfiguration{
 				Console: minTenant.Spec.Features.Domains.Console,

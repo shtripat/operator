@@ -64,6 +64,9 @@ type CreateTenantRequest struct {
 	// expose console
 	ExposeConsole bool `json:"expose_console,omitempty"`
 
+	// expose ftps
+	ExposeFtps bool `json:"expose_ftps,omitempty"`
+
 	// expose minio
 	ExposeMinio bool `json:"expose_minio,omitempty"`
 

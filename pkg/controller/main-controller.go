@@ -863,9 +863,15 @@ func (c *Controller) syncHandler(key string) (Result, error) {
 	} else {
 		existingPorts := hlSvc.Spec.Ports
 		sftpPortFound := false
+		ftpsPortFound := false
 		for _, port := range existingPorts {
 			if port.Name == miniov2.MinIOServiceSFTPPortName {
 				sftpPortFound = true
+			}
+			if port.Name == miniov2.MinIOServiceFTPSPortName {
+				ftpsPortFound = true
+			}
+			if sftpPortFound && ftpsPortFound {
 				break
 			}
 		}
@@ -884,6 +890,31 @@ func (c *Controller) syncHandler(key string) (Result, error) {
 			if sftpPortFound {
 				for _, port := range existingPorts {
 					if port.Name == miniov2.MinIOServiceSFTPPortName {
+						continue
+					}
+					newPorts = append(newPorts, port)
+				}
+				hlSvc.Spec.Ports = newPorts
+				_, err := c.kubeClientSet.CoreV1().Services(tenant.Namespace).Update(ctx, hlSvc, metav1.UpdateOptions(cOpts))
+				if err != nil {
+					return WrapResult(Result{}, err)
+				}
+			}
+		}
+		if tenant.Spec.Features != nil && tenant.Spec.Features.EnableFTPS != nil && *tenant.Spec.Features.EnableFTPS {
+			if !ftpsPortFound {
+				newPorts = existingPorts
+				newPorts = append(newPorts, corev1.ServicePort{Port: miniov2.MinIOFTPSPort, Name: miniov2.MinIOServiceFTPSPortName})
+				hlSvc.Spec.Ports = newPorts
+				_, err := c.kubeClientSet.CoreV1().Services(tenant.Namespace).Update(ctx, hlSvc, metav1.UpdateOptions(cOpts))
+				if err != nil {
+					return WrapResult(Result{}, err)
+				}
+			}
+		} else {
+			if ftpsPortFound {
+				for _, port := range existingPorts {
+					if port.Name == miniov2.MinIOServiceFTPSPortName {
 						continue
 					}
 					newPorts = append(newPorts, port)

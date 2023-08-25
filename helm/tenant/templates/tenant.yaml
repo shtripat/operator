@@ -92,6 +92,7 @@ spec:
     domains: {{- toYaml . | nindent 6 }}
     {{- end }}
     enableSFTP: {{ dig "features" "enableSFTP" false . }}
+    enableFTPS: {{ dig "features" "enableFTPS" false . }}
   {{- with (dig "buckets" (list) .) }}
   buckets: {{- toYaml . | nindent 4 }}
   {{- end }}

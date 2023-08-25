@@ -96,6 +96,9 @@ func parseTenantConfiguration(ctx context.Context, k8sClient K8sClientI, minTena
 	if minTenant.Spec.Features != nil && minTenant.Spec.Features.EnableSFTP != nil {
 		configurationInfo.SftpExposed = *minTenant.Spec.Features.EnableSFTP
 	}
+	if minTenant.Spec.Features != nil && minTenant.Spec.Features.EnableFTPS != nil {
+		configurationInfo.FtpsExposed = *minTenant.Spec.Features.EnableFTPS
+	}
 	return configurationInfo, nil
 }
 
@@ -168,6 +171,15 @@ func updateTenantConfigurationFile(ctx context.Context, operatorClient OperatorC
 	// Update SFTP flag
 	if tenant.Spec.Features != nil {
 		tenant.Spec.Features.EnableSFTP = &requestBody.SftpExposed
+		_, err = operatorClient.TenantUpdate(ctx, tenant, metav1.UpdateOptions{})
+		if err != nil {
+			return err
+		}
+	}
+
+	// Update FTPS flag
+	if tenant.Spec.Features != nil {
+		tenant.Spec.Features.EnableFTPS = &requestBody.FtpsExposed
 		_, err = operatorClient.TenantUpdate(ctx, tenant, metav1.UpdateOptions{})
 		if err != nil {
 			return err

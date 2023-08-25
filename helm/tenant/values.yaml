@@ -118,6 +118,7 @@ tenant:
     bucketDNS: false
     domains: { }
     enableSFTP: false
+    enableFTPS: false
   ## List of bucket definitions to create during tenant provisioning.
   ## Example:
   #   - name: my-minio-bucket

@@ -45,6 +45,7 @@ type TenantOptions struct {
 	ExposeMinioService      bool
 	ExposeConsoleService    bool
 	EnableSFTP              bool
+	EnableFTPS              bool
 
 	Interactive bool
 }
@@ -139,6 +140,7 @@ func NewTenant(opts *TenantOptions, userSecret *v1.Secret) (*miniov2.Tenant, err
 			},
 			Features: &miniov2.Features{
 				EnableSFTP: &opts.EnableSFTP,
+				EnableFTPS: &opts.EnableFTPS,
 			},
 		},
 	}

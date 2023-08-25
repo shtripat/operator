@@ -288,6 +288,9 @@ func createTenant(ctx context.Context, params operator_api.CreateTenantParams, c
 	if tenantReq.ExposeSftp {
 		features.EnableSFTP = &tenantReq.ExposeSftp
 	}
+	if tenantReq.ExposeFtps {
+		features.EnableFTPS = &tenantReq.ExposeFtps
+	}
 	minInst.Spec.Features = &features
 
 	opClient, err := GetOperatorClient(session.STSSessionToken)

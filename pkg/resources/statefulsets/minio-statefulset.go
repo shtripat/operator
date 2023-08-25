@@ -319,6 +319,17 @@ func poolMinioServerContainer(t *miniov2.Tenant, skipEnvVars map[string][]byte, 
 		})
 	}
 
+	if t.Spec.Features != nil && t.Spec.Features.EnableFTPS != nil && *t.Spec.Features.EnableFTPS {
+		pkFile := filepath.Join(miniov2.MinIOCertPath, certs.PrivateKeyFile)
+		args = append(args, []string{
+			"--ftps", fmt.Sprintf("address=:%d", miniov2.MinIOFTPSPort),
+			"--ftps", "ssh-private-key=" + pkFile,
+		}...)
+		containerPorts = append(containerPorts, v1.ContainerPort{
+			ContainerPort: miniov2.MinIOFTPSPort,
+		})
+	}
+
 	if t.Spec.Logging != nil {
 		// If logging is specified, expect users to
 		// provide the right set of settings to toggle

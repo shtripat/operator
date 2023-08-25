@@ -36,6 +36,9 @@ import (
 // swagger:model updateTenantRequest
 type UpdateTenantRequest struct {
 
+	// ftps exposed
+	FtpsExposed bool `json:"ftpsExposed,omitempty"`
+
 	// image
 	// Pattern: ^((.*?)/(.*?):(.+))$
 	Image string `json:"image,omitempty"`

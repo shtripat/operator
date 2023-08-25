@@ -91,12 +91,14 @@ export interface TenantStatus {
 export interface TenantConfigurationResponse {
   environmentVariables?: EnvironmentVariable[];
   sftpExposed?: boolean;
+  ftpsExposed?: boolean;
 }
 
 export interface UpdateTenantConfigurationRequest {
   keysToBeDeleted?: string[];
   environmentVariables?: EnvironmentVariable[];
   sftpExposed?: boolean;
+  ftpsExposed?: boolean;
 }
 
 export interface TenantSecurityResponse {
@@ -150,6 +152,7 @@ export interface Tenant {
   domains?: DomainsConfiguration;
   tiers?: TenantTierElement[];
   sftpExposed?: boolean;
+  ftpsExposed?: boolean;
 }
 
 export interface TenantUsage {
@@ -198,6 +201,7 @@ export interface UpdateTenantRequest {
   image_registry?: ImageRegistry;
   image_pull_secret?: string;
   sftpExposed?: boolean;
+  ftpsExposed?: boolean;
 }
 
 export interface ImageRegistry {
@@ -247,6 +251,7 @@ export interface CreateTenantRequest {
   expose_minio?: boolean;
   expose_console?: boolean;
   expose_sftp?: boolean;
+  expose_ftps?: boolean;
   domains?: DomainsConfiguration;
   environmentVariables?: EnvironmentVariable[];
 }

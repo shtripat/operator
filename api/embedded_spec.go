@@ -2414,6 +2414,9 @@ func init() {
         "expose_console": {
           "type": "boolean"
         },
+        "expose_ftps": {
+          "type": "boolean"
+        },
         "expose_minio": {
           "type": "boolean"
         },
@@ -4215,6 +4218,9 @@ func init() {
             }
           }
         },
+        "ftpsExposed": {
+          "type": "boolean"
+        },
         "idpAdEnabled": {
           "type": "boolean"
         },
@@ -4268,6 +4274,9 @@ func init() {
           "items": {
             "$ref": "#/definitions/environmentVariable"
           }
+        },
+        "ftpsExposed": {
+          "type": "boolean"
         },
         "sftpExposed": {
           "type": "boolean"
@@ -4562,6 +4571,9 @@ func init() {
             "$ref": "#/definitions/environmentVariable"
           }
         },
+        "ftpsExposed": {
+          "type": "boolean"
+        },
         "keysToBeDeleted": {
           "type": "array",
           "items": {
@@ -4576,6 +4588,9 @@ func init() {
     "updateTenantRequest": {
       "type": "object",
       "properties": {
+        "ftpsExposed": {
+          "type": "boolean"
+        },
         "image": {
           "type": "string",
           "pattern": "^((.*?)/(.*?):(.+))$"
@@ -7954,6 +7969,9 @@ func init() {
         "expose_console": {
           "type": "boolean"
         },
+        "expose_ftps": {
+          "type": "boolean"
+        },
         "expose_minio": {
           "type": "boolean"
         },
@@ -9608,6 +9626,9 @@ func init() {
             }
           }
         },
+        "ftpsExposed": {
+          "type": "boolean"
+        },
         "idpAdEnabled": {
           "type": "boolean"
         },
@@ -9661,6 +9682,9 @@ func init() {
           "items": {
             "$ref": "#/definitions/environmentVariable"
           }
+        },
+        "ftpsExposed": {
+          "type": "boolean"
         },
         "sftpExposed": {
           "type": "boolean"
@@ -9955,6 +9979,9 @@ func init() {
             "$ref": "#/definitions/environmentVariable"
           }
         },
+        "ftpsExposed": {
+          "type": "boolean"
+        },
         "keysToBeDeleted": {
           "type": "array",
           "items": {
@@ -9969,6 +9996,9 @@ func init() {
     "updateTenantRequest": {
       "type": "object",
       "properties": {
+        "ftpsExposed": {
+          "type": "boolean"
+        },
         "image": {
           "type": "string",
           "pattern": "^((.*?)/(.*?):(.+))$"

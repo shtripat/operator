@@ -155,6 +155,9 @@ const Configure = ({ classes }: IConfigureProps) => {
   const exposeSFTP = useSelector(
     (state: AppState) => state.createTenant.fields.configure.exposeSFTP,
   );
+  const exposeFTPS = useSelector(
+    (state: AppState) => state.createTenant.fields.configure.exposeFTPS,
+  );
   const setDomains = useSelector(
     (state: AppState) => state.createTenant.fields.configure.setDomains,
   );
@@ -343,6 +346,21 @@ const Configure = ({ classes }: IConfigureProps) => {
             updateField("exposeSFTP", checked);
           }}
           label={"Expose SFTP Service"}
+        />
+      </Grid>
+      <Grid item xs={12} className={classes.configSectionItem}>
+        <FormSwitchWrapper
+          value="expose_ftps"
+          id="expose_ftps"
+          name="expose_ftps"
+          checked={exposeFTPS}
+          onChange={(e) => {
+            const targetD = e.target;
+            const checked = targetD.checked;
+
+            updateField("exposeFTPS", checked);
+          }}
+          label={"Expose FTPS Service"}
         />
       </Grid>
       <Grid item xs={12} className={classes.configSectionItem}>

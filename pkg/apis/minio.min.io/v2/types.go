@@ -88,6 +88,10 @@ type Features struct {
 	//
 	// Starts minio server with SFTP support
 	EnableSFTP *bool `json:"enableSFTP,omitempty"`
+	// *Optional* +
+	//
+	// Starts minio server with FTPS support
+	EnableFTPS *bool `json:"enableFTPS,omitempty"`
 }
 
 // TenantSpec (`spec`) defines the configuration of a MinIO Tenant object. +

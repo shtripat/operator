@@ -39,6 +39,9 @@ type TenantConfigurationResponse struct {
 	// environment variables
 	EnvironmentVariables []*EnvironmentVariable `json:"environmentVariables"`
 
+	// ftps exposed
+	FtpsExposed bool `json:"ftpsExposed,omitempty"`
+
 	// sftp exposed
 	SftpExposed bool `json:"sftpExposed,omitempty"`
 }

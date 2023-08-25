@@ -28,6 +28,10 @@ spec:
     ## Enable access via SFTP
     ## This feature is turned off by default
     # enableSFTP: false
+
+    ## Enable access via FTPS
+    ## This feature is turned off by default
+    # enableFTPS: false
   ## Create users in the Tenant using this field. Make sure to create secrets per user added here.
   ## Secret should follow the format used in `minio-creds-secret`.
   users:

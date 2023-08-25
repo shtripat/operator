@@ -72,6 +72,9 @@ const MinIOPort = 9000
 // MinIOSFTPPort specifies the default Tenant SFTP port number.
 const MinIOSFTPPort = 8022
 
+// MinIOFTPSPort specifies the default Tenant FTPS port number.
+const MinIOFTPSPort = 8021
+
 // MinIOPortLoadBalancerSVC specifies the default Service port number for the load balancer service.
 const MinIOPortLoadBalancerSVC = 80
 
@@ -86,6 +89,9 @@ const MinIOServiceHTTPSPortName = "https-minio"
 
 // MinIOServiceSFTPPortName specifies the default Service's FTP port name
 const MinIOServiceSFTPPortName = "sftp-minio"
+
+// MinIOServiceFTPSPortName specifies the default Service's FTPS port name
+const MinIOServiceFTPSPortName = "ftps-minio"
 
 // MinIOVolumeName specifies the default volume name for MinIO volumes
 const MinIOVolumeName = "export"

@@ -93,6 +93,7 @@ func newTenantCreateCmd(out io.Writer, errOut io.Writer) *cobra.Command {
 	f.BoolVar(&c.tenantOpts.ExposeMinioService, "expose-minio-service", false, "Enable/Disable expose the Minio Service")
 	f.BoolVar(&c.tenantOpts.ExposeConsoleService, "expose-console-service", false, "Enable/Disable expose the Console service")
 	f.BoolVar(&c.tenantOpts.EnableSFTP, "enable-sftp", false, "Enable/Disable SFTP access to the tenant")
+	f.BoolVar(&c.tenantOpts.EnableFTPS, "enable-ftps", false, "Enable/Disable FTPS access to the tenant")
 	return cmd
 }
 
@@ -191,6 +192,7 @@ func (c *createCmd) populateInteractiveTenant() error {
 	c.tenantOpts.ExposeMinioService = helpers.Ask("Expose Minio Service")
 	c.tenantOpts.ExposeConsoleService = helpers.Ask("Expose Console Service")
 	c.tenantOpts.EnableSFTP = helpers.Ask("Enable SFTP")
+	c.tenantOpts.EnableFTPS = helpers.Ask("Enable FTPS")
 	return nil
 }
 

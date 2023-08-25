@@ -54,6 +54,9 @@ type Tenant struct {
 	// endpoints
 	Endpoints *TenantEndpoints `json:"endpoints,omitempty"`
 
+	// ftps exposed
+	FtpsExposed bool `json:"ftpsExposed,omitempty"`
+
 	// idp ad enabled
 	IdpAdEnabled bool `json:"idpAdEnabled,omitempty"`
 

@@ -39,6 +39,9 @@ type UpdateTenantConfigurationRequest struct {
 	// environment variables
 	EnvironmentVariables []*EnvironmentVariable `json:"environmentVariables"`
 
+	// ftps exposed
+	FtpsExposed bool `json:"ftpsExposed,omitempty"`
+
 	// keys to be deleted
 	KeysToBeDeleted []string `json:"keysToBeDeleted"`
 

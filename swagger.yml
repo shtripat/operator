@@ -1562,6 +1562,8 @@ definitions:
           $ref: "#/definitions/environmentVariable"
       sftpExposed:
         type: boolean
+      ftpsExposed:
+        type: boolean
 
   updateTenantConfigurationRequest:
     type: object
@@ -1575,6 +1577,8 @@ definitions:
         items:
           $ref: "#/definitions/environmentVariable"
       sftpExposed:
+        type: boolean
+      ftpsExposed:
         type: boolean
 
   tenantSecurityResponse:
@@ -1692,6 +1696,8 @@ definitions:
           $ref: "#/definitions/tenantTierElement"
       sftpExposed:
         type: boolean
+      ftpsExposed:
+        type: boolean
 
   tenantUsage:
     type: object
@@ -1770,6 +1776,8 @@ definitions:
       image_pull_secret:
         type: string
       sftpExposed:
+        type: boolean
+      ftpsExposed:
         type: boolean
 
   imageRegistry:
@@ -1876,6 +1884,8 @@ definitions:
       expose_console:
         type: boolean
       expose_sftp:
+        type: boolean
+      expose_ftps:
         type: boolean
       domains:
         type: object

@@ -156,6 +156,10 @@ func NewHeadlessForMinIO(t *miniov2.Tenant) *corev1.Service {
 		minioSFTPPort := corev1.ServicePort{Port: miniov2.MinIOSFTPPort, Name: miniov2.MinIOServiceSFTPPortName}
 		ports = append(ports, minioSFTPPort)
 	}
+	if t.Spec.Features != nil && t.Spec.Features.EnableFTPS != nil && *t.Spec.Features.EnableFTPS {
+		minioFTPSPort := corev1.ServicePort{Port: miniov2.MinIOFTPSPort, Name: miniov2.MinIOServiceFTPSPortName}
+		ports = append(ports, minioFTPSPort)
+	}
 
 	svc := &corev1.Service{
 		ObjectMeta: metav1.ObjectMeta{

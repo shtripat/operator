@@ -103,6 +103,7 @@ const initialState: ICreateTenant = {
       exposeMinIO: true,
       exposeConsole: true,
       exposeSFTP: false,
+      exposeFTPS: false,
       tenantCustom: false,
       customRuntime: false,
       runtimeClassName: "",

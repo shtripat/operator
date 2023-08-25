@@ -205,6 +205,8 @@ spec:
                           type: string
                         type: array
                     type: object
+                  enableFTPS:
+                    type: boolean
                   enableSFTP:
                     type: boolean
                 type: object

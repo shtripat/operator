@@ -123,6 +123,7 @@ const TenantConfiguration = ({ classes }: ITenantConfiguration) => {
   const [envVars, setEnvVars] = useState<LabelKeyPair[]>([]);
   const [envVarsToBeDeleted, setEnvVarsToBeDeleted] = useState<string[]>([]);
   const [sftpExposed, setSftpEnabled] = useState<boolean>(false);
+  const [ftpsExposed, setFtpsEnabled] = useState<boolean>(false);
 
   const getTenantConfigurationInfo = useCallback(() => {
     api
@@ -134,6 +135,7 @@ const TenantConfiguration = ({ classes }: ITenantConfiguration) => {
         if (res.environmentVariables) {
           setEnvVars(res.environmentVariables);
           setSftpEnabled(res.sftpExposed);
+          setFtpsEnabled(res.ftpsExposed);
         }
       })
       .catch((err: ErrorResponseHandler) => {
@@ -153,6 +155,7 @@ const TenantConfiguration = ({ classes }: ITenantConfiguration) => {
       environmentVariables: envVars.filter((env) => env.key !== ""),
       keysToBeDeleted: envVarsToBeDeleted,
       sftpExposed: sftpExposed,
+      ftpsExposed: ftpsExposed,
     };
     api
       .invoke(
@@ -307,6 +310,28 @@ const TenantConfiguration = ({ classes }: ITenantConfiguration) => {
                 name="expose-sftp"
                 onChange={() => {
                   setSftpEnabled(!sftpExposed);
+                }}
+                description=""
+              />
+            </Grid>
+          </Grid>
+          <Grid container spacing={1}>
+            <Grid
+              item
+              xs={12}
+              justifyContent={"end"}
+              textAlign={"right"}
+              className={classes.configSectionItem}
+            >
+              <FormSwitchWrapper
+                label={"FTPS"}
+                indicatorLabels={["Enabled", "Disabled"]}
+                checked={ftpsExposed}
+                value={"expose_ftps"}
+                id="expose-ftps"
+                name="expose-ftps"
+                onChange={() => {
+                  setSftpEnabled(!ftpsExposed);
                 }}
                 description=""
               />
